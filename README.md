@@ -325,6 +325,7 @@ For every answer, we store:
 * `citations` extracted from answer
 
 This is saved in a table like `rag_answers` and also optionally written to JSONL logs.
+
 ---
 
 ## ⚙️ Deployment Pattern
