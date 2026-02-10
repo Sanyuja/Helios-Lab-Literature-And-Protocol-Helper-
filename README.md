@@ -329,7 +329,10 @@ This is saved in a table like `rag_answers` and also optionally written to JSONL
 ---
 
 ## ⚙️ Deployment Pattern
-
+          Deployment is a containerized FastAPI app on EC2, served by Uvicorn ASGI server.
+          Indexes (faiss.index + metadata.json) load at startup; query hits POST /ask endpoint.
+          Frontend via Streamlit for lab users; cron jobs handle ingestion/reindexing offline.
+          Simple, reliable—p95 latency under 3s, scales with EC2 size.
 * **Environment**:
 
   * Docker container with Python + FAISS + OpenAI client
