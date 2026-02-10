@@ -67,7 +67,7 @@ Internal testing showed that **Helios-Lab reduced literature and protocol review
 ```
 The data pipeline for Helios-Lab RAG has five phases: ingestion, parsing, indexing, retrieval, and generation.
 
-Starts with discovery—cron job scans S3 or local for PDFs/DOCX, assigns doc IDs, extracts metadata like protocol ID or DOI, stores in SQL.
+Starts with discovery—cron job scans S3 or local drive for PDFs/DOCX, assigns doc IDs, extracts metadata like protocol ID or DOI, stores in SQL.
 
 Parsing uses pdfplumber for text/pages, then hybrid chunking by sections and tokens.
 
