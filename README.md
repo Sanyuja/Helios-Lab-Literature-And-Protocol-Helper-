@@ -329,7 +329,8 @@ This is saved in a table like `rag_answers` and also optionally written to JSONL
 ---
 
 ## ⚙️ Deployment Pattern
-         “Our system is deployed as a containerized FastAPI application running on an AWS EC2 instance, served by the Uvicorn ASGI server.
+         “Our system is deployed as a containerized FastAPI application running on an AWS EC2 instance,
+         served by the Uvicorn ASGI server.
           At startup, the service loads two key assets into memory:
           
           a FAISS index (faiss.index) for vector similarity search
@@ -343,8 +344,11 @@ This is saved in a table like `rag_answers` and also optionally written to JSONL
           and returns the matched chunks.
           
           For internal users, we provide a Streamlit frontend that calls the FastAPI backend over HTTP.
-          Data ingestion and re‑indexing are handled offline by cron jobs so the serving path stays lightweight and predictable.
-          The design is intentionally simple and reliable — on our chosen EC2 instance, we maintain p95 latency under 3 seconds, and scaling is straightforward: we can vertically scale the EC2 instance or horizontally add more containers behind a load balancer.”
+          Data ingestion and re‑indexing are handled offline by cron jobs
+          so the serving path stays lightweight and predictable.
+          The design is intentionally simple and reliable — on our chosen EC2 instance,
+          we maintain p95 latency under 3 seconds, and scaling is straightforward: 
+          we can vertically scale the EC2 instance or horizontally add more containers behind a load balancer.”
 * **Environment**:
 
   * Docker container with Python + FAISS + OpenAI client
