@@ -189,38 +189,38 @@ Chunks are stored in a `chunks` table and as JSONL in storage.
 
 ---
 
-### 3️⃣ Embedding & Indexing
+### 3️⃣Embedding & Indexing
 
 * For each chunk, call OpenAI embeddings with `text-embedding-3-large`.
+* **Normalize embeddings to unit L2 norm** (`faiss.normalize_L2(embeddings)` or `norms = np.linalg.norm(...)`).
 * Save embeddings as vectors (in a NumPy array) plus a mapping from vector index → `chunk_id`.
 
 FAISS index:
 
-* Use an index type like `IndexFlatIP` (inner product).
-* Add all embeddings.
+* Use `IndexFlatIP` (inner product) since normalized vectors make IP = cosine similarity.
+* Add all **normalized** embeddings.
 * Save:
-
+  
   * `faiss.index` file (stores numerical vectors only)
-  * 🔹 The machine-side index
-🔹 Stores numerical vectors only
-🔹 Optimized for fast similarity search
-🔹 No knowledge of what each vector “represents” (no text/document/etc.)
+    * 🔹 The machine-side index
+    * 🔹 Stores numerical vectors only  
+    * 🔹 Optimized for fast similarity search
+    * 🔹 No knowledge of what each vector "represents"
 
   * `index_metadata.json` (mapping vector position → `chunk_id`)
-  * This map each vector to:
-
-          * original text chunk
-          document ID
-          page number
-          sentence ID
-          file name
-          paragraph index
-
+    * Maps each vector to:
+      * original text chunk
+      * document ID
+      * page number
+      * sentence ID
+      * file name
+      * paragraph index
+    
 * Think of it as:
+  * 🔸 The human-side index
+  * 🔸 Maps FAISS vector IDs → your content IDs  
+  * 🔸 Used to retrieve actual text after similarity search
 
-*🔸 The human-side index
-🔸 Maps FAISS vector IDs → your content IDs
-🔸 Used to retrieve actual text after similarity search
 
 Versioning:
 
