@@ -65,7 +65,15 @@ Internal testing showed that **Helios-Lab reduced literature and protocol review
           │  Citations, chunk IDs, links  │
           └───────────────────────────────┘
 ```
+The data pipeline for Helios-Lab RAG has five phases: ingestion, parsing, indexing, retrieval, and generation.
 
+Starts with discovery—cron job scans S3 or local for PDFs/DOCX, assigns doc IDs, extracts metadata like protocol ID or DOI, stores in SQL.
+
+Parsing uses pdfplumber for text/pages, then hybrid chunking by sections and tokens.
+
+Indexing embeds chunks with text-embedding-3-large, stores in FAISS with metadata JSON for traceability.
+
+Query flow: embed question, FAISS top-k retrieve, GPT-4 generate with citations, guardrails check.
 ---
 
 ## 🛠️ Tech Stack
