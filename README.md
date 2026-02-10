@@ -325,8 +325,30 @@ For every answer, we store:
 * `citations` extracted from answer
 
 This is saved in a table like `rag_answers` and also optionally written to JSONL logs.
+---
+
+## ⚙️ Deployment Pattern
+
+* **Environment**:
+
+  * Docker container with Python + FAISS + OpenAI client
+  * Hosted on an internal EC2 instance or container service
+* **API**:
+
+  * FastAPI endpoint `/ask`:
+
+    * Input: question text + optional filters (document type, date range)
+    * Output: answer, citations, metadata
+* **Authentication**:
+
+  * Basic token authentication for internal users
+* **Scheduling / Updates**:
+
+  * Nightly job to scan for new documents
+  * Rebuild embeddings and FAISS index incrementally if new docs appear
 
 ---
+
 
 ## 📊 Evaluation & “60% Review Time Reduction”
 
@@ -370,27 +392,6 @@ To approximate the **60% reduction** in review effort, we ran an internal evalua
 
 We report this as **“reduced scientific literature and protocol review effort by ~60%.”**
 
----
-
-## ⚙️ Deployment Pattern
-
-* **Environment**:
-
-  * Docker container with Python + FAISS + OpenAI client
-  * Hosted on an internal EC2 instance or container service
-* **API**:
-
-  * FastAPI endpoint `/ask`:
-
-    * Input: question text + optional filters (document type, date range)
-    * Output: answer, citations, metadata
-* **Authentication**:
-
-  * Basic token authentication for internal users
-* **Scheduling / Updates**:
-
-  * Nightly job to scan for new documents
-  * Rebuild embeddings and FAISS index incrementally if new docs appear
 
 ---
 
