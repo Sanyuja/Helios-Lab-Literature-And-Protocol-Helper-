@@ -192,8 +192,27 @@ FAISS index:
 * Add all embeddings.
 * Save:
 
-  * `faiss.index` file
+  * `faiss.index` file (stores numerical vectors only)
+  * 🔹 The machine-side index
+🔹 Stores numerical vectors only
+🔹 Optimized for fast similarity search
+🔹 No knowledge of what each vector “represents” (no text/document/etc.)
+
   * `index_metadata.json` (mapping vector position → `chunk_id`)
+  * This map each vector to:
+
+original text chunk
+document ID
+page number
+sentence ID
+file name
+paragraph index
+
+Think of it as:
+
+🔸 The human-side index
+🔸 Maps FAISS vector IDs → your content IDs
+🔸 Used to retrieve actual text after similarity search
 
 Versioning:
 
