@@ -201,16 +201,16 @@ FAISS index:
   * `index_metadata.json` (mapping vector position → `chunk_id`)
   * This map each vector to:
 
-original text chunk
-document ID
-page number
-sentence ID
-file name
-paragraph index
+* original text chunk
+* document ID
+* page number
+* sentence ID
+* file name
+* paragraph index
 
-Think of it as:
+* Think of it as:
 
-🔸 The human-side index
+*🔸 The human-side index
 🔸 Maps FAISS vector IDs → your content IDs
 🔸 Used to retrieve actual text after similarity search
 
