@@ -201,12 +201,12 @@ FAISS index:
   * `index_metadata.json` (mapping vector position → `chunk_id`)
   * This map each vector to:
 
-* original text chunk
-* document ID
-* page number
-* sentence ID
-* file name
-* paragraph index
+          * original text chunk
+          document ID
+          page number
+          sentence ID
+          file name
+          paragraph index
 
 * Think of it as:
 
