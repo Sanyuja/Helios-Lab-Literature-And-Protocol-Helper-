@@ -15,7 +15,7 @@ The system:
 * **Indexes external scientific papers and references**
 * Uses **FAISS** for vector search over embedded chunks
 * Uses **OpenAI LLMs** to generate grounded answers
-* Enforces **prompt guardrails and traceability** so every answer is backed by specific documents, page numbers, and DOIs or protocol IDs
+* Enforces **prompt guardrails and traceability** so every answer is backed by specific documents, page numbers, and DOIs (Digital Object Identifier—it's a unique permanent code for academic papers or datasets. )or protocol IDs
 
 Internal testing showed that **Helios-Lab reduced literature and protocol review time by about 60%** for common recurring questions.
 
