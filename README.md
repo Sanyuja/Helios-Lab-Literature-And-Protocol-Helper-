@@ -429,6 +429,3 @@ We report this as **“reduced scientific literature and protocol review effort 
 
 ---
 
-
-* Help you **mock a tiny version with dummy PDFs and code structure**
-* Or adapt this same design to a **fraud-knowledge RAG assistant** for this Shipt role.
