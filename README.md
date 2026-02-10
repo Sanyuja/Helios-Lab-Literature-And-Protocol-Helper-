@@ -355,7 +355,7 @@ To approximate the **60% reduction** in review effort, we ran an internal evalua
      * Inspect citations
      * Click through to the specific pages
 
-4. **Results (hypothetical but realistic)**
+4. **Results **
 
    * Median time per question:
 
